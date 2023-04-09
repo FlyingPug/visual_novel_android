@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">visual_novel</string>
+    <string name="main_background_for_visual_novel">main background for visual novel</string>
+    <string name="test_line">i love cheese</string>
+    <string name="kirusha_hi">Привет! Меня зовут Кирюша. А тебя?</string>
+    <string name="enter_a_name">Введите свое имя…</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="dialogue1">Отлично, {username}! Чем займемся?</string>
+    <string name="tryAgain">Пройти еще раз</string>
+    <string name="thanksForPlaying">Спасибо, что поиграли!</string>
+    <string name="myVisualNovel">Моя визуальная новелла</string>
+    <string name="start">Начать</string>
+</resources>

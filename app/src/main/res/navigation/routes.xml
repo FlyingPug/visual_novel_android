@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/routes"
+    app:startDestination="@id/startPageFragment">
+
+    <fragment
+        android:id="@+id/sayNameFragment"
+        android:name="com.dron.visual_novel.SayNameFragment"
+        android:label="fragment_say_name"
+        tools:layout="@layout/fragment_say_name" >
+        <action
+            android:id="@+id/action_sayNameFragment_to_regularPageFragment"
+            app:destination="@id/regularPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/regularPageFragment"
+        android:name="com.dron.visual_novel.RegularPageFragment"
+        android:label="fragment_regular_page"
+        tools:layout="@layout/fragment_regular_page" >
+        <argument
+            android:name="sceneId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_regularPageFragment_self"
+            app:destination="@id/regularPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_regularPageFragment_to_finalPage"
+            app:destination="@id/finalPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/startPageFragment"
+        android:name="com.dron.visual_novel.StartPageFragment"
+        android:label="fragment_start_page"
+        tools:layout="@layout/fragment_start_page" >
+        <action
+            android:id="@+id/action_startPageFragment_to_sayNameFragment"
+            app:destination="@id/sayNameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/startPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalPageFragment"
+        android:name="com.dron.visual_novel.FinalPageFragment"
+        android:label="fragment_final_page"
+        tools:layout="@layout/fragment_final_page" >
+        <action
+            android:id="@+id/action_finalPage_to_startPageFragment2"
+            app:destination="@id/startPageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+</navigation>

@@ -13,6 +13,10 @@ class SayNameFragment : Fragment() {
 
     private val binding by lazy { FragmentSayNameBinding.inflate(layoutInflater) }
 
+    private companion object {
+        const val START_SCENE_ID = 3
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -23,7 +27,7 @@ class SayNameFragment : Fragment() {
         binding.confirmButton.setOnClickListener {
             val action = SayNameFragmentDirections.actionSayNameFragmentToRegularPageFragment()
             action.name = binding.editTextTextPersonName.text.toString()
-            action.sceneId = 3
+            action.sceneId = START_SCENE_ID
             navController.navigate(action)
         }
 

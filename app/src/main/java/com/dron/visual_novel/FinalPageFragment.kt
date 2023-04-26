@@ -19,8 +19,7 @@ class FinalPageFragment : Fragment() {
         val navController = findNavController()
 
         binding.confirmButton.setOnClickListener {
-            val action = FinalPageFragmentDirections.actionFinalPageToStartPageFragment2()
-            navController.navigate(action)
+            navController.navigate(FinalPageFragmentDirections.actionFinalPageToStartPageFragment2())
         }
 
         return binding.root

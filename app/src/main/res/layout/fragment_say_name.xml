@@ -11,6 +11,7 @@
     <ImageView
         android:id="@+id/main_background"
         style="@style/backGroundImage"
+        android:layout_height="match_parent"
         android:contentDescription="@string/main_background_for_visual_novel"
         android:scaleType="centerCrop"
         android:src="@drawable/image1"

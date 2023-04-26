@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.dron.visual_novel.databinding.FragmentRegularPageBinding
-import com.dron.visual_novel.game.Game
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-
+import com.dron.visual_novel.game.GameManager
 
 class RegularPageFragment : Fragment() {
 
     private val binding by lazy { FragmentRegularPageBinding.inflate(layoutInflater) }
-    private val namePlace = "{username}"
+
+    private companion object {
+        const val NAME_PLACE = "{username}"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,15 +26,7 @@ class RegularPageFragment : Fragment() {
 
         val navController = findNavController()
 
-        val jsonString =
-            context?.assets?.open("game_scenario.json")?.bufferedReader().use { it?.readText() }
-
-        val game = jsonString?.let { Json.decodeFromString<Game>(it) }
-
-        val scene =
-            game?.Scenes?.firstOrNull { it.id == sceneId }
-
-        if (scene == null) {
+        val scene = GameManager.game?.Scenes?.firstOrNull { it.id == sceneId } ?: run{
             navController.navigate(R.id.finalPageFragment)
             return binding.root
         }
@@ -44,23 +36,28 @@ class RegularPageFragment : Fragment() {
             "drawable",
             requireContext().packageName
         )
-        //view.background = ContextCompat.getDrawable(requireContext(), drawableId)
         binding.mainBackground.setImageResource(drawableId)
 
-        /*val dialogueId =
-            resources.getIdentifier(scene?.dialogue, "string", requireContext().packageName)*/
-        var dialogue = scene.dialogue//resources.getString(dialogueId)
+        var dialogue = scene.dialogue
 
         val name = arguments?.let { RegularPageFragmentArgs.fromBundle(it).name }
 
-        if (name != null) dialogue = dialogue.replace(namePlace, name)
+        if (name != null) dialogue = dialogue.replace(NAME_PLACE, name)
         binding.dialogueText.text = dialogue
 
         val options = scene.choices
         for (option in options) {
 
-            val buttonLayout = LayoutInflater.from(context)
-                .inflate(R.layout.option_button, binding.buttonsContainer, false) as Button
+            val buttonLayout = (LayoutInflater.from(context)
+                .inflate(R.layout.option_button, binding.buttonsContainer, false) as Button).also {
+                it.text = option.text
+
+                it.setOnClickListener {
+                    val action = RegularPageFragmentDirections.actionRegularPageFragmentSelf()
+                    action.sceneId = option.nextSceneId
+                    navController.navigate(action)
+                }
+            }
 
             buttonLayout.text = option.text
 

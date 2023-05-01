@@ -1,0 +1,159 @@
+{
+  "currentSceneId": 1,
+  "Scenes": [
+    {
+      "id": 3,
+      "backgroundImageId": "image1",
+      "dialogue": "Отлично, {username}! Чем займемся?",
+      "choices": [
+        {
+          "text": "Пойдем на пробежку",
+          "nextSceneId": 4
+        },
+        {
+          "text": "Пойдем в поход",
+          "nextSceneId": 5
+        },
+        {
+          "text": "Погуляем по полю",
+          "nextSceneId": 6
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "backgroundImageId": "scene4",
+      "dialogue": "Может, пойдем домой?..",
+      "choices": [
+        {
+          "text": "Да, и посмотрим фильм",
+          "nextSceneId": 7
+        },
+        {
+          "text": "Да, и отпразднуем хэллоуин",
+          "nextSceneId": 8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "backgroundImageId": "scene5",
+      "dialogue": "Как уютно... Но уже темнеет.",
+      "choices": [
+        {
+          "text": "Пойдем домой и посмотрим фильм",
+          "nextSceneId": 7
+        },
+        {
+          "text": "Пойдем домой и отпразднуем Хэллоуин",
+          "nextSceneId": 8
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "backgroundImageId": "scene6",
+      "dialogue": "Тебе грустно... Пойдем домой?",
+      "choices": [
+        {
+          "text": "Может, посмотрим фильм?",
+          "nextSceneId": 7
+        },
+        {
+          "text": "Да, отпразднуем Хэллоуин",
+          "nextSceneId": 8
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "backgroundImageId": "scene7to10",
+      "dialogue": "Как тебе фильм?",
+      "choices": [
+        {
+          "text": "Мне понравился!",
+          "nextSceneId": 9
+        },
+        {
+          "text": "Не очень...",
+          "nextSceneId": 10
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "backgroundImageId": "scene8",
+      "dialogue": "Получается очень красиво!",
+      "choices": [
+        {
+          "text": "Да! Может, посмотрим фильм?",
+          "nextSceneId": 7
+        },
+        {
+          "text": "Да! Давай сделаем костюмы!",
+          "nextSceneId": 11
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "backgroundImageId": "scene7to10",
+      "dialogue": "Отлично! А теперь пора спать...",
+      "choices": [
+        {
+          "text": "Да, уже поздно...",
+          "nextSceneId": 14
+        }
+      ]
+    }
+  ,
+    {
+      "id": 10,
+      "backgroundImageId": "scene7to10",
+      "dialogue": "Жаль... Тогда пойдем спать?",
+      "choices": [
+        {
+          "text": "Да, уже поздно...",
+          "nextSceneId": 14
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "backgroundImageId": "scene11to13",
+      "dialogue": "Мне нравится твой костюм.",
+      "choices": [
+        {
+          "text": "Твой тоже очень красивый!",
+          "nextSceneId": 12
+        },
+        {
+          "text": "А мне, если честно, не нравится твой...",
+          "nextSceneId": 13
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "backgroundImageId": "scene11to13",
+      "dialogue": "Спасибо! Ну, пойдем спать?",
+      "choices": [
+        {
+          "text": "Да, уже поздно...",
+          "nextSceneId": 14
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "backgroundImageId": "scene11to13",
+      "dialogue": "Ничего, я не в обиде. Пойдем спать?",
+      "choices": [
+        {
+          "text": "Да, уже поздно...",
+          "nextSceneId": 14
+        }
+      ]
+    }
+  ]
+}
